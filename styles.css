@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+}
+html {
+    scroll-behavior: smooth;
+  }
+body {
+    font-family: Arial, sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+html, body {
+    overflow-x: hidden; 
+    overflow-y: visible; 
+}
+.navbar {
+    display: flex;
+    height: 4rem;
+    position: sticky;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    background: #1b1c1d59;
+    padding: 15px 20px;
+    color: white;
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-links li {
+    margin: 0 25px;
+    padding: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.dark-mode-toggle input {
+    display: none;
+}
+
+.toggle-label {
+    width: 40px;
+    height: 20px;
+    background: #888;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.toggle-label::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+.dark-mode-toggle input:checked + .toggle-label {
+    background: #fdd835;
+}
+
+.dark-mode-toggle input:checked + .toggle-label::before {
+    transform: translateX(20px);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #111;
+    color: white;
+}
+
+body.dark-mode .navbar {
+    background-color: #22222277;
+    color: white;
+}
+
+body.dark-mode .nav-links li a {
+    color: white;
+}
+
+body.dark-mode .web-technologies-section,
+body.dark-mode .education-skills-section {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode .web-technologies-section h3,
+body.dark-mode .education-skills-section .list-head {
+    color: #fdd835;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #444;
+}
+
+body.dark-mode .progress-status {
+    background-color: #fdd835;
+}
+
+body.dark-mode .title {
+    color: #fdd835;
+}
+
+body.dark-mode .contact {
+    background-color: #222;
+    color: white;
+}
+
+body.dark-mode .contact-form label,
+body.dark-mode .contact-details p {
+    color: white;
+}
+
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #444;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode .contact-form button {
+    background-color: #fdd835;
+    color: black;
+}
+
+body.dark-mode .menu-toggle {
+    color: white;
+}
+
+
+.dark-mode-toggle input:checked + .toggle-label {
+    background: #fdd835;
+}
+
+body.dark-mode .menu-toggle {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 auto;
+        width: 90%;
+        background: #333;
+        position: absolute;
+        top: 60px;
+        left: 5%;
+        height: 60%;
+        border-radius: 2rem;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+    .navbar{
+        position: sticky;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
+    .home{
+        flex-direction: column;
+        text-align: center;
+        
+    }
+    .home h1{
+        font-size: 2rem;
+    }
+    .home p{
+        font-size: 1rem;
+    }
+    .home a{
+        font-size: 1rem;
+    }
+    .bio{
+        font-size: 1rem;
+        width: 100%;
+        margin-top: 4rem;
+    }
+    .web-technologies {
+        flex-direction: column;
+        text-align: center;
+        height: fit-content;
+    }
+    .education-skills {
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+        height: auto;
+    }
+    .education-skills-section {
+        padding: 0;
+        flex: 1;
+        height: auto;
+    }
+    .nested-list {
+        padding-left: 0; 
+    }
+    .progress-bar{
+        display: none;
+    }
+    .list-head {
+        margin-left: 0;
+    }
+  
+    .skills,.education li {
+        padding: 0; 
+        margin: 0;
+        text-align: left;
+
+    }
+  
+
+}
+@media (min-width: 768px) {
+    .web-technologies {
+        height: 80vh;
+    }
+    .education-skills {
+        height: 50vh;
+    }
+    .home-right {
+        width: 50%;
+    }
+    .bio{
+        font-size: 1rem;
+        margin-top: 2rem;
+        width: 70%;
+    }
+}
+.home {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+    font-size: 3rem;
+    padding: 5rem;
+}
+
+.btn{
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+.home-right img {
+    width: 100%;
+   
+ 
+}
+#quote{
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+.web-technologies {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    
+}
+.web-technologies-section {
+    background-color: #888;
+    padding: 2rem;
+    border-radius: 1rem;
+    flex: 1;
+}
+.web-technologies-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.title {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+.education-skills {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; 
+    gap: 5rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    height: auto; 
+    overflow: visible; 
+}
+.education-skills-section {
+    background-color: #888;
+    padding: 2rem;
+    flex: 1;
+    border-radius: 1rem;
+    height: 100%;
+}
+
+.nested-list {
+    padding-left: 20px; 
+
+}
+.skill-item {
+    display: flex;        
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%;
+     
+}
+.skill-text{
+    width: 30%;
+  }
+.progress-bar {
+    width: 50%;       
+    height: 11px;
+    background-color: black;
+    border-radius: 5px;
+    margin-left: 5rem;     
+    flex-grow: 1;         
+  }
+  
+  .progress-status {
+    display: block;
+    height: 100%;          
+    background-color: white;  
+    border-radius: 5px;
+    transition: width 0.5s ease; 
+  }
+  
+  .nested-list {
+    margin-left: 2rem; 
+  }
+  
+
+  .list-head {
+    font-weight: bold;
+  }
+  ul {
+    list-style-type: none;
+  }
+
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 3rem;
+    margin-top: 2rem; 
+}
+
+.contact-details, .contact-form {
+    flex: 1;
+    padding: 2rem;
+    height: 70vh;
+    background-color: #888;
+    border-radius: 10px;
+}
+.contact-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+.contact-details h2, .contact-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 1rem;
+    background-color: blue;
+    width: 50%;
+    align-self: center;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 3rem;
+        margin-top: 2rem;
+        width: 100%;
+        box-sizing: border-box;
+    } 
+    .contact-details, .contact-form {
+        flex: none;
+        width: 100%;
+    }
+}
